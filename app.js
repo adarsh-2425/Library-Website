@@ -106,11 +106,11 @@ app.put('/api/update',(req,res)=>{
     })
   })
     
+  app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+    });
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
-    });
