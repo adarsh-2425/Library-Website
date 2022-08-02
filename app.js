@@ -1,6 +1,6 @@
 const express = require('express');
-const BookData = require('./Backend/src/model/bookData');
-const UserData = require('./Backend/src/model/userData')
+const BookData = require('./src/model/bookData');
+const UserData = require('./src/model/userData')
 const cors = require('cors');
 var bodyparser=require('body-parser');
 var app = new express();
