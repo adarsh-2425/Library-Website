@@ -7,13 +7,27 @@ var app = new express();
 const jwt = require('jsonwebtoken');
 app.use(cors());
 app.use(bodyparser.json());
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 const path = require('path');
 
 app.use(express.static('./dist/frontend'));
 
 
+app.post('/api/insertUser',function(req,res){
+    
+    console.log(req.body);
+   
+    var user = {       
+        First_Name: req.body.user.First_Name,
+        Last_Name : req.body.user.Last_Name,
+        email : req.body.user.email,
+        password : req.body.user.password
+        
+   }       
+   var user = new UserData(user);
+   user.save();
+});
 
 app.post('/api/login',(req,res)=>{
         username=req.body.uname;
